@@ -1,0 +1,46 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    // "rootDir": "./src",
+    "outDir": "./build", /////////////////////////// USAR
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "commonjs", /////////////////////// USAR
+    "esModuleInterop": true, //////////////////////////////// USAR
+    "target": "es2015", //////////////////////////////USAR 
+    //"types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    //"sourceMap": true,
+    //"declaration": true,
+    //"declarationMap": true,
+
+    // Stricter Typechecking Options
+    //"noUncheckedIndexedAccess": true,
+    //"exactOptionalPropertyTypes": true,
+
+    // Style Options
+    "noImplicitReturns": true,///////////////////////////////////// USAR
+    // "noImplicitOverride": true,
+    "noUnusedLocals": true, //////////////////////////////////// USAR
+    "noUnusedParameters": true,///////////////////////////////// USAR
+    "noFallthroughCasesInSwitch": true,////////////////////////////////////// USAR
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true, /////////////////////////// USAR
+    //"jsx": "react-jsx",
+    "verbatimModuleSyntax": false,
+    //"isolatedModules": true,
+    //"noUncheckedSideEffectImports": true,
+    //"moduleDetection": "force",
+    "skipLibCheck": true, //////////////////////////////// USAR
+    "resolveJsonModule": true,
+  }
+}
