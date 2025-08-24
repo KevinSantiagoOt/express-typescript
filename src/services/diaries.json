@@ -2,24 +2,28 @@
 {
     "id":1,
     "date":"2017-01-01",
-    "weather":"Rainy (Lluvioso)",
-    "visibility":"Bad (Mala)",
+    "done":true,
     "comment":"Pretty scary flight, I'm glad I'm learning much"
 },
 
 {
     "id":2,
     "date":"2017-02-01",
-    "weather":"Sunny (Soleado)",
-    "visibility":"Good (Buena)",
+    "done":false,
     "comment":"Everything went better than expected, I'm learning much"
 },
 
 {
     "id":3,
+    "date":"2020-09-04",
+    "done":true,
+    "comment": "okk"
+},
+
+{
+    "id":4,
     "date":"2017-04-15",
-    "weather":"Windy (Ventoso)",
-    "visibility":"Good (Buena)",
+    "done":false,
     "comment":"I'm getting pretty confident although I hit a flock of birds"
 }
 ]

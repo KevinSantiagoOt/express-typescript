@@ -27,8 +27,20 @@ router.post('/', (req, res) => {
     if (e instanceof Error) {
       res.status(400).send(e.message)
     } else {
-      res.status(400).send('ERROR..')
+      res.status(400).send('ERROR...')
     }
+  }
+})
+
+// _______________________________________________________________________________________________
+router.delete('/delete/:id', (req, res) => {
+  const id = +req.params.id
+  const deleteDiary = diaryServices.deleteById(id)
+
+  if (deleteDiary) {
+    res.status(204).end()
+  } else {
+    res.status(404).send('ERROR...')
   }
 })
 

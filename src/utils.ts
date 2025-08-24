@@ -1,4 +1,4 @@
-import { NewDiaryEntry, Weather, Visibility } from './types'
+import { NewDiaryEntry, Done } from './types'
 
 // PARCEAMOS PARA VERIFICAR EL DATO DE ENTRADA
 const parseComment = (commentFromRequest: any): string => {
@@ -18,27 +18,20 @@ const parseDate = (dateFromRequest: any): string => {
   return dateFromRequest
 }
 
+// ________________________________________________________________________________________________________________________________________________
 // PARCEAMOS PARA VERIFICAR EL DATO DE ENTRADA
-export const parseWeather = (weatherFromRequest: any): Weather => {
-  if (!isString(weatherFromRequest) || !isWeather(weatherFromRequest)) {
-    throw new Error('Incorrect of missing Weather')
+const parseDone = (doneFromRequest: any): Done => {
+  if (!isBool(doneFromRequest)) {
+    throw new Error('Incorrect of missing Done')
   }
 
-  return weatherFromRequest
+  return doneFromRequest
 }
 
-// PARCEAMOS PARA VERIFICAR EL DATO DE ENTRADA
-const parseVisibility = (visibilityFromRequest: any): Visibility => {
-  if (!isString(visibilityFromRequest) || !isVisibility(visibilityFromRequest)) {
-    throw new Error('Incorrect of missing Visibility')
-  }
-
-  return visibilityFromRequest
-}
-
-// AQUI SE VERIFICA QUE SI SEA UN DATO TIPO WEATHER
-const isWeather = (param: any): boolean => {
-  return Object.values(Weather).includes(param)
+// ________________________________________________________________________________________________________________________________________________
+// VERIFICAMOS SI EL DATO DE ENTRADA ES BOOLEAN
+const isBool = (valor: any): boolean => {
+  return typeof valor === 'boolean'
 }
 
 // AQUI SE VERIFICA QUE SI SEA UN DATO TIPO STRING
@@ -51,17 +44,14 @@ const isDate = (date: string): boolean => {
   return Boolean(Date.parse(date))
 }
 
-// VALIDAMOS SI ES DE TIPO VISIBILITY
-const isVisibility = (param: any): boolean => {
-  return Object.values(Visibility).includes(param)
-}
+// ________________________________________________________________________________________________________________________________________________
+// VALIDAMOS SI ES DE TIPO DONE
 
 const toNewDiaryEntry = (object: any): NewDiaryEntry => {
   const newEntry: NewDiaryEntry = {
     comment: parseComment(object.comment),
     date: parseDate(object.date),
-    weather: parseWeather(object.weather),
-    visibility: parseVisibility(object.visibility)
+    done: parseDone(object.done)
   }
 
   return newEntry

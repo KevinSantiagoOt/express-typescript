@@ -15,14 +15,13 @@ export const findById = (id: number): NonSensitiveInfoDiaryEntry | undefined => 
 }
 
 export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoDiaryEntry[] => {
-  return diaries.map(({ id, date, weather, visibility }) => {
+  return diaries.map(({ id, date, done }) => {
     return {
       id,
       date,
-      weather,
-      visibility
+      done
     }
-  })
+  }).sort((a, b) => Number(b.done) - Number(a.done)) // ESTA LINEA ME ORDENA LOS DATOS POR DONE _________________________________
 }
 
 export const addDiary = (newDiaryEntry: NewDiaryEntry): DiaryEntry => {
@@ -32,4 +31,15 @@ export const addDiary = (newDiaryEntry: NewDiaryEntry): DiaryEntry => {
   }
   diaries.push(newDiary)
   return newDiary
+}
+
+// ELIMINAR POR ID
+export const deleteById = (id: number): boolean => {
+  const index = diaries.findIndex(d => d.id === id)
+  if (index !== -1) {
+    diaries.splice(index, 1)
+    return true
+  } else {
+    return false
+  }
 }
