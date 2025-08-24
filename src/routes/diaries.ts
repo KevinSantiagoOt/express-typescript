@@ -32,6 +32,17 @@ router.post('/', (req, res) => {
   }
 })
 
+router.patch('/:id', (req, res) => {
+  const id = +req.params.id
+  const patchDiary = diaryServices.patchById(id)
+
+  if (patchDiary !== null) {
+    res.status(200).send(patchDiary)
+  } else {
+    res.status(404).send('ERROR...')
+  }
+})
+
 // _______________________________________________________________________________________________
 router.delete('/delete/:id', (req, res) => {
   const id = +req.params.id
